@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "my first server",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vraj Patel",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
 }

@@ -7,7 +7,7 @@ function requestHandler(req,res){
     // res.end("Node js server without html")
     // res.end("<h1>Node js server</h1>")
     fs.readFile("./index.html",function(err,data){
-        if(err){
+        if(err){    
             console.log(err)
             return res.end("<h1>error</h1>")
         }

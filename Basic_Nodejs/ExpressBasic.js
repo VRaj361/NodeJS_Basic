@@ -3,6 +3,8 @@ const app = express()
 let port = 9998
 
 //get request
+app.use(express.json())//json request like raw->json
+app.use(express.urlencoded({extended:true}))//body for taking images, sticker and all this think in urlEncoded
 app.get("/login",(req,res)=>{
     res.send("Login..")
     //out of all the content is ignored
@@ -16,6 +18,13 @@ app.get("/signup",(req,res)=>{
 app.get("/",(req,res)=>{
     res.send("Home.. Page")
 })
+
+app.post("/calculate",(req,res)=>{
+    console.log(req.body)//getting data
+    let ans = req.body.num1+req.body.num2
+    res.json({status:200,msg:"Addition",data:ans})
+})
+
 app.listen(port,()=>{
     console.log("server started on port number -> "+port)
 })

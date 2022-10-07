@@ -1,4 +1,5 @@
 const express = require("express")
+const mongoos = require("mongoose")
 const app = express()
 let port = 9998
 
@@ -23,6 +24,11 @@ app.post("/calculate",(req,res)=>{
     console.log(req.body)//getting data
     let ans = req.body.num1+req.body.num2
     res.json({status:200,msg:"Addition",data:ans})
+})
+
+
+mongoos.connect('mongodb://localhost:27179/basicprac',function(){
+    console.log("Database Connected...")
 })
 
 app.listen(port,()=>{

@@ -1,8 +1,9 @@
 const express = require("express")
 const mongoos = require("mongoose")
+const userController = require("./controller/userController")
+
 const app = express()
 let port = 9998
-
 //get request
 app.use(express.json())//json request like raw->json
 app.use(express.urlencoded({extended:true}))//body for taking images, sticker and all this think in urlEncoded
@@ -27,9 +28,16 @@ app.post("/calculate",(req,res)=>{
 })
 
 
+
 mongoos.connect('mongodb://localhost:27179/basicprac',function(){
     console.log("Database Connected...")
 })
+
+// app.post("/user",userController.addUser)
+// app.get("/users/:userId",userController.getUserById)
+// app.put("/user/:userId",userController.updateUser)
+// app.delete("/user/:userId",userController.deleteUser)
+
 
 app.listen(port,()=>{
     console.log("server started on port number -> "+port)
